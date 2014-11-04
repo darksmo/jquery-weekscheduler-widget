@@ -1,0 +1,41 @@
+{
+  "name": "weekSchedulerWidget",
+  "title": "Week Scheduler Widget",
+  "description": "A week scheduler widget, ideal to be used as a popup to schedule an event to occur at a given week",
+  "version": "0.0.1",
+  "homepage": "http://darksmo.github.io/jquery-weekscheduler-widget/",
+  "demo": "http://darksmo.github.io/jquery-weekscheduler-widget/",
+  "author": {
+    "name": "Savio Dimatteo",
+    "email": "darksmo@gmail.com",
+    "url": "http://www.savio.dimatteo.it"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/darksmo/jquery-weekscheduler-widget.git"
+  },
+  "bugs": "http://darksmo.github.io/jquery-weekscheduler-widget/",
+  "docs": "http://darksmo.github.io/jquery-weekscheduler-widget/",
+  "download": "http://github.com/darksmo/jquery-weekscheduler-widget/zipball/master/dist",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://darksmo.github.io/jquery-weekscheduler-widget/blob/master/LICENCE"
+    }
+  ],
+  "dependencies": {
+    "jquery": ">=1.6.4"
+  },
+  "keywords": [
+    "ui",
+    "control",
+    "widget",
+    "date",
+    "time",
+    "scheduler",
+    "timetable",
+    "picker",
+    "chooser",
+    "dropdown"
+  ]
+}

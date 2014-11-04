@@ -1,0 +1,33 @@
+{
+  "name": "localizationTool",
+  "version": "0.0.13",
+  "main": [
+    "./dist/jquery.weekSchedulerWidget.js"
+  ],
+  "ignore": [
+    ".jshintrc",
+    ".gitignore",
+    "**/*.txt",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "latest"
+  },
+  "homepage": "http://darksmo.github.io/jquery-weekscheduler-widget/",
+  "authors": [
+    "Savio Dimatteo <darksmo@gmail.com>"
+  ],
+  "description": "jQuery Week Scheduler Widget",
+  "keywords": [
+    "ui",
+    "translation",
+    "localization",
+    "control",
+    "widget"
+  ],
+  "license": "MIT"
+}
