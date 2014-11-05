@@ -1,11 +1,66 @@
-@color-lightgray: #AAA;
-@color-black: #333;
 
-@dropdown-item-horizontal-spacing: 8px;
-@dropdown-item-veritcal-spacing: 8px;
-@dropdown-padding: 12px;
-@dropdown-arrow-size: 10px;
+@color-black: #555;
+@color-white: white;
 
-@color-dropdown-background: #8DC1E2;
-@color-dropdown-background-light: lighten(@color-dropdown-background, 20%);
-@color-dropdown-background-hover: #F5F1D6;
+@color1: #A2194F;
+@color2: #E1407F;
+
+@color-title: @color1;
+@color-button-background: @color1;
+@color-button-foreground: @color-white;
+@color-label: @color1;
+
+.weekSchedulerWidgetContainer {
+    padding: 1em;
+    color: @color-black;
+
+    .weekSchedulerWidgetClearfix {
+        clear: both;
+        height: 1px;
+        width: 100px;
+    } 
+
+    .weekSchedulerWidgetTitle {
+        font-size: 1.7em;
+        color: @color-title;
+    }
+
+    .weekSchedulerWidgetLabel {
+        clear: both;
+        margin-top: 1em;
+        font-weight: bolder;
+        color: @color-label;
+    }
+    .weekSchedulerWidgetSubLabel {
+    }
+
+    .weekSchedulerWidgetDay {
+        float: left;
+        width: 25%;
+    }
+
+    .weekSchedulerWidgetHour {
+        margin-right: 0.5em;
+    }
+
+    .weekSchedulerWidgetButton:hover {
+        background: @color2;
+    }
+    .weekSchedulerWidgetButton {
+        background: @color-button-background;
+        color: @color-button-foreground;
+        padding: 0.5em;
+        margin-right: 0.5em;
+        cursor: hand;
+        cursor: pointer;
+        margin-top: 1em;
+    }
+
+    .weekSchedulerWidgetLayoutHorizontal > * {
+        float: left;
+    }
+
+    .weekSchedulerWidgetLayoutHorizontalRight > * {
+        float: right;
+    }
+}
