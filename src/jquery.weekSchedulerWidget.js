@@ -211,7 +211,7 @@
          * Returns an array of Dates, each representing a day of the week
          * selected by the user.
          *
-         * @name _validateMonthNames
+         * @name getSelectedDates
          * @function
          * @access public
          * @returns {array} selection - an array of dates representing the selection of the user
@@ -552,7 +552,7 @@
             return [firstDayOfWeek, lastDayOfWeek];
         },
         /**
-         * Returns the markup of the <select> control for the week chooser
+         * Returns the markup of the select control for the week chooser
          *
          * @name _getWeeksMarkup
          * @function
@@ -656,11 +656,11 @@
         },
         /**
          * Validates the month names provided in localization.monthNames.
-         *
          * Throws error in case of mistakes.
+         *
          * @name _validateMonthNames
-         * @function
          * @access private
+         * @function
          * @param {array} monthArray - the array of localized month names
          * @returns {boolean} result - always true
          **/
@@ -691,6 +691,23 @@
             }
 
             return true;
+        },
+        /**
+         * Destroys the week scheduler widget.
+         *
+         * @name destroy 
+         * @function
+         * @access public
+         * @returns {jQueryObject} $(this) - for chainability
+         */
+        'destroy' : function() {
+            var $this = this;
+
+            $this.unbind('click');
+            $this.html('');
+            __dayMapping = [];
+
+            return $this;
         },
         /**
          * Initialises the week scheduler widget.
@@ -743,6 +760,9 @@
                  */
                 firstDayOfWeek: 1,
                 lastDayOfWeek: 0,
+                /*
+                 * Whether to hide the widget at start time
+                 */
                 hideOnStart: false,
                 onBeforeShow: function () { return true; }, // true: can show
                 onAfterShow: function () {  },
