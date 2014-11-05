@@ -119,7 +119,7 @@ module.exports = function(grunt) {
         files: ['src/*.less'],
         tasks: ['less','cssmin'],
         options: {
-          nospawn: true
+          nospawn: false
         }
       }
     },
