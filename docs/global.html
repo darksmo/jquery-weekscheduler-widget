@@ -91,7 +91,7 @@
         <dl>
             
 <dt>
-    <h4 class="name" id="_bindEvents"><span class="type-signature">&lt;private> </span>_bindEvents<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="_enumerateMinutes"><span class="type-signature">&lt;private> </span>_enumerateMinutes<span class="signature">()</span><span class="type-signature"> &rarr; {array}</span></h4>
     
     
 </dt>
@@ -99,7 +99,8 @@
     
     
     <div class="description">
-        Binds events to the localization tool widget.
+        Returns an array containing an enumeration of all the minutes given
+the current precision.
     </div>
     
 
@@ -132,152 +133,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line313">line 313</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="_buildStringReferenceMapping"><span class="type-signature">&lt;private> </span>_buildStringReferenceMapping<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Goes through each text node and builds a string reference mapping.
-It is a mapping (an object) 
-STRING_IDENTIFIER -> <IS_ATTRIBUTE?, ORIGINAL_HTML, [DOM_NODES]> 
-used later for the translation. See init method for a
-reference. The resulting object is stored internally in
-$this.data('refMappingObj') as refMapping.
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line398">line 398</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="_decomposeStringsForReferenceMapping"><span class="type-signature">&lt;private> </span>_decomposeStringsForReferenceMapping<span class="signature">()</span><span class="type-signature"> &rarr; {object}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Analizes the input strings object and decomposes its keys in
-sections: text strings, id strings, class strings, element strings,
-attribute strings.
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line351">line 351</a>
+        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line410">line 410</a>
     </li></ul></dd>
     
     
@@ -302,148 +158,7 @@ attribute strings.
     
             
 <div class="param-desc">
-    the decomposition object.
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">object</span>
-
-
-	</dd>
-</dl>
-
-        
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="_findSubsetOfUsedLanguages"><span class="type-signature">&lt;private> </span>_findSubsetOfUsedLanguages<span class="signature">(stringsObj)</span><span class="type-signature"> &rarr; {array}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Goes through each string defined and extracts the common subset of
-languages that actually used. The default language is added to this
-subset a priori. The resulting list is sorted by country name.
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>stringsObj</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">the strings to translate</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line781">line 781</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    usedLanguageCodes - an array of country codes sorted based on country names.
+    numbers - an array containing all the valid minutes for the given precision
 </div>
 
 
@@ -468,7 +183,7 @@ subset a priori. The resulting list is sorted by country name.
         
             
 <dt>
-    <h4 class="name" id="_initializeWidget"><span class="type-signature">&lt;private> </span>_initializeWidget<span class="signature">(languageCodeArray)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="_getDaysMarkup"><span class="type-signature">&lt;private> </span>_getDaysMarkup<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
     
     
 </dt>
@@ -476,7 +191,7 @@ subset a priori. The resulting list is sorted by country name.
     
     
     <div class="description">
-        Initializes the localization tool widget.
+        Returns the markup for the days checkboxes.
     </div>
     
 
@@ -484,54 +199,6 @@ subset a priori. The resulting list is sorted by country name.
     
     
     
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>languageCodeArray</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">array</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">the language code array of the languages to be displayed</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
     
     
     
@@ -557,245 +224,7 @@ subset a priori. The resulting list is sorted by country name.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line130">line 130</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="_languageCodeToHtml"><span class="type-signature"></span>_languageCodeToHtml<span class="signature">(languageCode)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Returns the html representation for the given language code.
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>languageCode</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">the language code as defined in the settings object</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line60">line 60</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="_languageCodeToOrdinal"><span class="type-signature">&lt;private> </span>_languageCodeToOrdinal<span class="signature">(lanuageCode)</span><span class="type-signature"> &rarr; {number}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Returns the ordinal number corresponding to the given language code,
-or throws in case the given language code is not defined.
-NOTE: this method operates on the active languages, therefore
-$this.data('activeLanguageCodeArray') must be available when the
-method is called.
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>lanuageCode</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">the language code to convert to ordinal</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line11">line 11</a>
+        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line493">line 493</a>
     </li></ul></dd>
     
     
@@ -820,7 +249,7 @@ method is called.
     
             
 <div class="param-desc">
-    ordinal - the converted ordinal
+    checkboxes - the checkboxes markup for the widget
 </div>
 
 
@@ -831,9 +260,843 @@ method is called.
 	</dt>
 	<dd>
 		
+<span class="param-type">string</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="_getHoursMarkup"><span class="type-signature">&lt;private> </span>_getHoursMarkup<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns the markup for the hours dropdown.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line466">line 466</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    dropdownMarkup - the markup of the dropdown box
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">string</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="_getMinutesMarkup"><span class="type-signature">&lt;private> </span>_getMinutesMarkup<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns the markup for the minutes dropdown.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line431">line 431</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    markup - the markup of the minutes select widget
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">string</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="_getSelectedDates"><span class="type-signature">&lt;private> </span>_getSelectedDates<span class="signature">()</span><span class="type-signature"> &rarr; {array}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns an array of Dates, given the selection object from
+_getSelectedDates.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line173">line 173</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    selection - an array of dates representing the selection of the user
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">array</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="_getWeekOfDay"><span class="type-signature">&lt;private> </span>_getWeekOfDay<span class="signature">(dayDate)</span><span class="type-signature"> &rarr; {array}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Given a date, returns an array of two elements containing two Date
+objects. The first one represents the first day of the week, the
+second one represents the last day of the week.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>dayDate</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">the date of a day in the week to identify</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line518">line 518</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    weekLimits an array containing the first and the last day of the week
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">array</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="_getWeeksMarkup"><span class="type-signature">&lt;private> </span>_getWeeksMarkup<span class="signature">(startDate, endDate)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns the markup of the <select> control for the week chooser
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>startDate</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">a day in the middle of the starting week</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>endDate</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">a day in the middle of the ending week</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line554">line 554</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    weeksMarkup the select markup
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">string</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="_getWidgetHtml"><span class="type-signature">&lt;private> </span>_getWidgetHtml<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns the widget HTML markup
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line603">line 603</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    html the markup of the widget
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">string</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="_populateDayMapping"><span class="type-signature">&lt;private> </span>_populateDayMapping<span class="signature">(startDay, endDay)</span><span class="type-signature"> &rarr; {array}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Populates the day mapping, an array that maps [ userDay (index) ] ->
+dateDay (value). For example, [3, 4, 5, 6, 0, 1, 2] means that day 0
+for the user is day 3 for the Date object. This still follows the
+convention 0 = sunday 6 = saturday.
+Throws an error in case of problems.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>startDay</code></td>
+            
+            
+            <td class="type">
+            
+                
 <span class="param-type">number</span>
 
 
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">the first day for the user</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>endDay</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">the last day for the user</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line356">line 356</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    mapping - the user -> date days mapping
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">array</span>
+
+
 	</dd>
 </dl>
 
@@ -845,7 +1108,7 @@ method is called.
         
             
 <dt>
-    <h4 class="name" id="_mayTranslate"><span class="type-signature">&lt;private> </span>_mayTranslate<span class="signature">(<span class="optional">languageCode</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="_setSelection"><span class="type-signature">&lt;private> </span>_setSelection<span class="signature">(selection)</span><span class="type-signature"> &rarr; {jQueryObject}</span></h4>
     
     
 </dt>
@@ -853,207 +1116,7 @@ method is called.
     
     
     <div class="description">
-        Calls the user specified callback (if any), then translates the page.
-If the user returned 'false' in his/her callback, the translation is
-not performed.
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>languageCode</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-            
-            <td class="description last">the language code to translate to</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line653">line 653</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="_onDropdownClicked"><span class="type-signature">&lt;private> </span>_onDropdownClicked<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Handles dropdown click event.
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line165">line 165</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="_onKeydown"><span class="type-signature">&lt;private> </span>_onKeydown<span class="signature">(e)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Handles keydown event
+        Selects various controls in the UI according to the given selection.
     </div>
     
 
@@ -1087,13 +1150,13 @@ not performed.
 	
         <tr>
             
-                <td class="name"><code>e</code></td>
+                <td class="name"><code>selection</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">event</span>
+<span class="param-type">object</span>
 
 
             
@@ -1103,7 +1166,7 @@ not performed.
             
             
             
-            <td class="description last">the keydown event</td>
+            <td class="description last">the desired selection</td>
         </tr>
 	
 	
@@ -1134,7 +1197,7 @@ not performed.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line282">line 282</a>
+        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line129">line 129</a>
     </li></ul></dd>
     
     
@@ -1155,6 +1218,28 @@ not performed.
     
     
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    $(this) - for chainability
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">jQueryObject</span>
+
+
+	</dd>
+</dl>
+
+        
     
     
 </dd>
@@ -1162,7 +1247,7 @@ not performed.
         
             
 <dt>
-    <h4 class="name" id="_onLanguageSelected"><span class="type-signature">&lt;private> </span>_onLanguageSelected<span class="signature">($item)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="_validateMinutesPrecision"><span class="type-signature">&lt;private> </span>_validateMinutesPrecision<span class="signature">(minutesPrecision)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
     
     
 </dt>
@@ -1170,7 +1255,9 @@ not performed.
     
     
     <div class="description">
-        Handles user clicks on a certain dropdown item.
+        Validates the minutes precision parameter
+
+Throws error in case of mistakes.
     </div>
     
 
@@ -1204,13 +1291,13 @@ not performed.
 	
         <tr>
             
-                <td class="name"><code>$item</code></td>
+                <td class="name"><code>minutesPrecision</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">$element</span>
+<span class="param-type">number</span>
 
 
             
@@ -1220,12 +1307,104 @@ not performed.
             
             
             
-            <td class="description last">the jquery item clicked</td>
+            <td class="description last">the minutes precision specified by the user</td>
         </tr>
 	
 	
 	</tbody>
 </table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line674">line 674</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    result - always true
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">boolean</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="_validateMonthNames"><span class="type-signature"></span>_validateMonthNames<span class="signature">()</span><span class="type-signature"> &rarr; {array}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns an array of Dates, each representing a day of the week
+selected by the user.
+    </div>
+    
+
+    
+    
+    
+    
     
     
     
@@ -1272,202 +1451,11 @@ not performed.
     
     
     
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="_onMouseout"><span class="type-signature">&lt;private> </span>_onMouseout<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Handles mouseout on dropdown items.
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line188">line 188</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="_ordinalToLanguageCode"><span class="type-signature">&lt;private> </span>_ordinalToLanguageCode<span class="signature">(ordinal)</span><span class="type-signature"> &rarr; {string}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Returns the language code corresponding to the given ordinal number.
-It throws in case the given ordinal number does not correspond to any
-language code.
-NOTE: this method operates on the active languages, therefore
-$this.data('activeLanguageCodeArray') must be available when the
-method is called.
-    </div>
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>ordinal</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">the ordinal number to convert into a language code</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line36">line 36</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
     <h5>Returns:</h5>
     
             
 <div class="param-desc">
-    languageCode - the converted language code
+    selection - an array of dates representing the selection of the user
 </div>
 
 
@@ -1478,7 +1466,7 @@ method is called.
 	</dt>
 	<dd>
 		
-<span class="param-type">string</span>
+<span class="param-type">array</span>
 
 
 	</dd>
@@ -1492,7 +1480,7 @@ method is called.
         
             
 <dt>
-    <h4 class="name" id="_selectLanguage"><span class="type-signature">&lt;private> </span>_selectLanguage<span class="signature">(languageCode)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="_validateMonthNames"><span class="type-signature">&lt;private> </span>_validateMonthNames<span class="signature">(monthArray)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
     
     
 </dt>
@@ -1500,7 +1488,9 @@ method is called.
     
     
     <div class="description">
-        Displays the given language in the dropdown menu.
+        Validates the month names provided in localization.monthNames.
+
+Throws error in case of mistakes.
     </div>
     
 
@@ -1534,13 +1524,13 @@ method is called.
 	
         <tr>
             
-                <td class="name"><code>languageCode</code></td>
+                <td class="name"><code>monthArray</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">array</span>
 
 
             
@@ -1550,7 +1540,7 @@ method is called.
             
             
             
-            <td class="description last">the language code</td>
+            <td class="description last">the array of localized month names</td>
         </tr>
 	
 	
@@ -1581,283 +1571,7 @@ method is called.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line114">line 114</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="_selectPreviousLanguage"><span class="type-signature">&lt;private> </span>_selectPreviousLanguage<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Select the language before the current language in the list.
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line229">line 229</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="_selectPreviousLanguage"><span class="type-signature">&lt;private> </span>_selectPreviousLanguage<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Select the language after the current language in the list.
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line255">line 255</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="destroy"><span class="type-signature"></span>destroy<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Destroys the dropdown widget.
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line749">line 749</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="getSelectedLanguageCode"><span class="type-signature"></span>getSelectedLanguageCode<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Returns the code of the language currently selected
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line670">line 670</a>
+        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line657">line 657</a>
     </li></ul></dd>
     
     
@@ -1882,7 +1596,7 @@ method is called.
     
             
 <div class="param-desc">
-    [languageCode] - the language code currently selected
+    result - always true
 </div>
 
 
@@ -1893,7 +1607,189 @@ method is called.
 	</dt>
 	<dd>
 		
-<span class="param-type">string</span>
+<span class="param-type">boolean</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getSelection"><span class="type-signature"></span>getSelection<span class="signature">()</span><span class="type-signature"> &rarr; {object}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns the selection made by the user
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line148">line 148</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    selection - the selection of the user, like { week: [Date, Date], days: [0, 3, 6], hour: 21, minutes: 59 }
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="hide"><span class="type-signature"></span>hide<span class="signature">()</span><span class="type-signature"> &rarr; {jqueryObject}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Hides the widget to the user
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line323">line 323</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    $this - for chainability
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">jqueryObject</span>
 
 
 	</dd>
@@ -1915,7 +1811,7 @@ method is called.
     
     
     <div class="description">
-        Initialises the localization tool plugin.
+        Initialises the week scheduler widget.
     </div>
     
 
@@ -2008,7 +1904,7 @@ method is called.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line852">line 852</a>
+        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line695">line 695</a>
     </li></ul></dd>
     
     
@@ -2046,7 +1942,7 @@ method is called.
         
             
 <dt>
-    <h4 class="name" id="translate"><span class="type-signature"></span>translate<span class="signature">(<span class="optional">languageCode</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="setDates"><span class="type-signature"></span>setDates<span class="signature">(datesArray)</span><span class="type-signature"> &rarr; {jqueryObject}</span></h4>
     
     
 </dt>
@@ -2054,7 +1950,10 @@ method is called.
     
     
     <div class="description">
-        Translates the current page.
+        Sets the current selection based on a given set of Date objects. The
+dates specified must all fall within the same week, and have the
+same hour and minute set. An error is thrown if this is not
+respected.
     </div>
     
 
@@ -2076,8 +1975,6 @@ method is called.
 		<th>Type</th>
 		
 		
-		<th>Argument</th>
-		
 		
 		
 		
@@ -2090,33 +1987,23 @@ method is called.
 	
         <tr>
             
-                <td class="name"><code>languageCode</code></td>
+                <td class="name"><code>datesArray</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">array</span>
 
 
             
             </td>
             
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
             
             
             
-            
-            <td class="description last">the language to translate to.</td>
+            <td class="description last">the array of Date objects</td>
         </tr>
 	
 	
@@ -2147,7 +2034,7 @@ method is called.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line681">line 681</a>
+        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line226">line 226</a>
     </li></ul></dd>
     
     
@@ -2168,6 +2055,677 @@ method is called.
     
     
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    $(this) - for chainability
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">jqueryObject</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setDays"><span class="type-signature"></span>setDays<span class="signature">(days)</span><span class="type-signature"> &rarr; {jQueryObject}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Ticks the specified dates of the week and unticks the other days
+of the week.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>days</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">the selection to be set</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line84">line 84</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    ${this} - for chainability
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">jQueryObject</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setHour"><span class="type-signature"></span>setHour<span class="signature">(hour)</span><span class="type-signature"> &rarr; {jQueryObject}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Selects the specified hour
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>hour</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">the hour</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line47">line 47</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    $(this) - for chainability
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">jQueryObject</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setMinutes"><span class="type-signature"></span>setMinutes<span class="signature">(minutes)</span><span class="type-signature"> &rarr; {jQueryObject}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Selects the specified minutes. Throws an error if the minute doesn't
+respect the user selected precision.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>minutes</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">the minutes to set</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line18">line 18</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    $(this) - for chainability
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">jQueryObject</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setWeek"><span class="type-signature"></span>setWeek<span class="signature">(dayOfWeek)</span><span class="type-signature"> &rarr; {jQueryObject}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Selects the date range falling in the specified day of the week.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>dayOfWeek</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">a date object indicating the day of the week</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line64">line 64</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    ${this} - for chainability
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">jQueryObject</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="show"><span class="type-signature"></span>show<span class="signature">()</span><span class="type-signature"> &rarr; {jqueryObject}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Shows the widget to the user
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.weekSchedulerWidget.js.html">jquery.weekSchedulerWidget.js</a>, <a href="jquery.weekSchedulerWidget.js.html#line297">line 297</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    $this - for chainability
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">jqueryObject</span>
+
+
+	</dd>
+</dl>
+
+        
     
     
 </dd>
@@ -2188,13 +2746,13 @@ method is called.
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Global</h3><ul><li><a href="global.html#_bindEvents">_bindEvents</a></li><li><a href="global.html#_buildStringReferenceMapping">_buildStringReferenceMapping</a></li><li><a href="global.html#_decomposeStringsForReferenceMapping">_decomposeStringsForReferenceMapping</a></li><li><a href="global.html#_findSubsetOfUsedLanguages">_findSubsetOfUsedLanguages</a></li><li><a href="global.html#_initializeWidget">_initializeWidget</a></li><li><a href="global.html#_languageCodeToHtml">_languageCodeToHtml</a></li><li><a href="global.html#_languageCodeToOrdinal">_languageCodeToOrdinal</a></li><li><a href="global.html#_mayTranslate">_mayTranslate</a></li><li><a href="global.html#_onDropdownClicked">_onDropdownClicked</a></li><li><a href="global.html#_onKeydown">_onKeydown</a></li><li><a href="global.html#_onLanguageSelected">_onLanguageSelected</a></li><li><a href="global.html#_onMouseout">_onMouseout</a></li><li><a href="global.html#_ordinalToLanguageCode">_ordinalToLanguageCode</a></li><li><a href="global.html#_selectLanguage">_selectLanguage</a></li><li><a href="global.html#_selectPreviousLanguage">_selectPreviousLanguage</a></li><li><a href="global.html#destroy">destroy</a></li><li><a href="global.html#getSelectedLanguageCode">getSelectedLanguageCode</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#translate">translate</a></li></ul>
+    <h2><a href="index.html">Index</a></h2><h3>Global</h3><ul><li><a href="global.html#_enumerateMinutes">_enumerateMinutes</a></li><li><a href="global.html#_getDaysMarkup">_getDaysMarkup</a></li><li><a href="global.html#_getHoursMarkup">_getHoursMarkup</a></li><li><a href="global.html#_getMinutesMarkup">_getMinutesMarkup</a></li><li><a href="global.html#_getSelectedDates">_getSelectedDates</a></li><li><a href="global.html#_getWeekOfDay">_getWeekOfDay</a></li><li><a href="global.html#_getWeeksMarkup">_getWeeksMarkup</a></li><li><a href="global.html#_getWidgetHtml">_getWidgetHtml</a></li><li><a href="global.html#_populateDayMapping">_populateDayMapping</a></li><li><a href="global.html#_setSelection">_setSelection</a></li><li><a href="global.html#_validateMinutesPrecision">_validateMinutesPrecision</a></li><li><a href="global.html#_validateMonthNames">_validateMonthNames</a></li><li><a href="global.html#getSelection">getSelection</a></li><li><a href="global.html#hide">hide</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#setDates">setDates</a></li><li><a href="global.html#setDays">setDays</a></li><li><a href="global.html#setHour">setHour</a></li><li><a href="global.html#setMinutes">setMinutes</a></li><li><a href="global.html#setWeek">setWeek</a></li><li><a href="global.html#show">show</a></li></ul>
 </nav>
 
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Tue Nov 04 2014 19:10:18 GMT+0100 (CET)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Wed Nov 05 2014 20:16:52 GMT+0100 (CET)
 </footer>
 
 <script> prettyPrint(); </script>
