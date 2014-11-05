@@ -3,7 +3,7 @@ jquery.weekSchedulerWidget.js
 
 [1]: <https://github.com/darksmo/jquery-weekscheduler-widget>
 
-A week scheduler widget, ideal to be used as a popup to schedule an event to occur at a given week
+A week scheduler widget, ideal to be used as a popup to schedule an event to occur at a given time and days in week.
 
 [![Build Status](https://travis-ci.org/darksmo/jquery-weekscheduler-widget.svg?branch=master)](https://travis-ci.org/darksmo/jquery-weekscheduler-widget)
 
@@ -12,14 +12,17 @@ A week scheduler widget, ideal to be used as a popup to schedule an event to occ
 Initialize with:
 
 ```html
+    <div id="widget"></div>
 ```
 
 ```javascript
+    $('#widget').weekSchedulerWidget();
 ```
 
 Destroy with:
 
 ```javascript
+    $('#widget').weekSchedulerWidget('destroy');
 ```
 
 #### Demo
@@ -32,24 +35,60 @@ For a Quick Start, step-by-step guide, have a look at the source html of the fol
 
 [https://github.com/darksmo/jquery-weekscheduler-widget/blob/master/demo/index.html](https://github.com/darksmo/jquery-weekscheduler-widget/blob/master/demo/index.html)
 
-#### Options
+#### Options and Callbacks
 
 Option | Type | Default | Description
 ------ | ---- | ------- | -----------
-defaultLanguage | string | en_GB | the `language_country` code the page to translate is initially in.
-languages | object | {} | additional/custom language definitions
-strings | object | {} | pointers to the original strings and their translations in various languages
-showFlag | boolean | true | whether to show the flag on the widget
-showLanguage | boolean | true | whether to show the language name on the widget
-showCountry | boolean | true | whether to show the country name on the widget
-onLanguageSelected | function | function (/*langCountryCode*/) { return true; } | a callback called as soon as the user selects the new language from the dropdown menu. Return true to trigger the translation or false to just select the language without translating.
+localization | object | see below | localization of the widget, including months and day names
+minutesPrecision | number | 15 | the granularity of the minutes picker, the default is indicating to schedule at the 15th minute of the hour
+startDate | Date | `new Date()` | the day of the week we want to start from in the week picker
+endDate | Date | a date object ending one month later than startDate | the day of the week we want to end to in the week picker
+firstDayOfWeek | number | 1 | what day is the first day of the week for you; `0 = sunday 6 = saturday`
+lastDayOfWeek | number | 0 | what day is the last day of the week for you; `0 = sunday 6 = saturday`
+hideOnStart | boolean | false | whether to hide the widget at start time
+onBeforeShow | function | `function () { return true; }` | a callback called before the widget is shown
+onAfterShow | function | `function () { }` | a callback called after the widget is shown
+onBeforeHide | function | `function () { return true; }` | a callback called before the widget is hidden 
+onAfterHide | function | `function () { }` | a callback called after the widget is hidden
+
+The `localization` option default is too long to fit in the table. But it looks like this:
+
+    localization: {
+        title: 'Schedule item',
+        week: 'Week',
+        days: 'Days',
+        time: 'Time',
+        hour: 'Hour',
+        minute: 'Minute',
+        confirm: 'Add',
+        cancel: 'Cancel',
+        to: 'to',
+        /* 
+         * Must start with the first day specified in
+         * firstDayOfWeek and end with the one corresponding to
+         * lastDayOfWeek 
+         * */
+        dayNames: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        monthNames: ['January', 'February', 'March', 'April',
+            'May', 'June', 'July', 'August', 'September', 'October',
+            'November', 'December'
+        ]
+    },
 
 #### Methods
 
 Method | Argument | Description
 ------ | -------- | -----------
-translate | string (languageCode) | translates the text in the given language programmatically, if no language code is specified, the default (initial) translation is used.
-destroy | None | destroys the localization tool
+show | None | show the widget
+hide | None | hide the widget
+getSelectedDates | None | get the current selection of the user represented as an array of Date objects
+getSelection | None | get the current selection of the user in the form of an object
+setDates | Array[Date] | select the current selection via an array of Dates
+setDays | Array[number] | select the currently selected days (takes an array of days to select like [3, 5, 6] where 0=sunday and 6=saturday)
+setHour | number | select the given hour
+setMinutes | number | select the given minutes
+setWeek | Date | select the week in which the given Date object falls
+destroy | None | destroys the widget
 
 #### JSDoc
 
