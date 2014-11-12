@@ -919,12 +919,11 @@
                     methods.hide.call($this, triggerEvents);
                 }
 
-                methods._bindEvents.call($this);
-
                 // save instance specific data...
                 var html = methods._getWidgetHtml.call($this);
                 $this.append(html);
 
+                methods._bindEvents.call($this);
             });
         }
     };
