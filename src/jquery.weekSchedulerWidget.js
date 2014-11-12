@@ -528,7 +528,7 @@
         '_bindEvents': function () {
             var $this = this;
 
-            $this.find(".weekSchedulerWidgetWeeksSelect").bind('change', function (e) {
+            $this.find(".weekSchedulerWidgetWeeksSelect").bind('change', function () {
                 $this.trigger($.Event(eventsThrown.EVT_WEEK_CHANGED));
             });
 
@@ -686,6 +686,16 @@
             // move backwards/forwards until it's the first day of the week
             var firstDayOfWeek = moveUntilDayOfWeek(dayDateWithoutTime, -1, settings.firstDayOfWeek);
             var lastDayOfWeek = moveUntilDayOfWeek(dayDateWithoutTime, +1, settings.lastDayOfWeek);
+
+            // reset hours, minutes, and seconds as needed
+            firstDayOfWeek.setHours(0);
+            firstDayOfWeek.setMinutes(0);
+            firstDayOfWeek.setSeconds(0);
+
+            lastDayOfWeek.setHours(23);
+            lastDayOfWeek.setMinutes(59);
+            lastDayOfWeek.setSeconds(59);
+
 
             return [firstDayOfWeek, lastDayOfWeek];
         },

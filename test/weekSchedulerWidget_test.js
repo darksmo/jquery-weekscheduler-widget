@@ -159,6 +159,7 @@
         setup: addInitializedMarkupToFixture('widget')
       });
 
+
       test('returns expected date range', function () {
         var d = new Date(2014, 8, 11); // 11 Sept 2014
         var daysArray = $('#widget').weekSchedulerWidget(testMethod, d);
@@ -178,6 +179,23 @@
         var daysArray = $('#widget').weekSchedulerWidget(testMethod, d);
         equal(daysArray[0].toDateString(), 'Mon Sep 08 2014', 'obtained Mon 8 September');
         equal(daysArray[1].toDateString(), 'Sun Sep 14 2014', 'obtained Sun 14 September');
+      });
+
+      test('the first and the last day are precise when it comes to hours/minutes/seconds', function () {
+        var d = new Date(2014, 8, 14); // 8 Sept 2014
+        var daysArray = $('#widget').weekSchedulerWidget(testMethod, d);
+        equal(daysArray[0].toDateString(), 'Mon Sep 08 2014', 'obtained Mon 8 September');
+        equal(daysArray[1].toDateString(), 'Sun Sep 14 2014', 'obtained Sun 14 September');
+
+        equal(daysArray[0].getSeconds(), 0, 'got 0 seconds for beginning of week');
+        equal(daysArray[1].getSeconds(), 59, 'got 59 seconds for end of week');
+
+        equal(daysArray[0].getMinutes(), 0, 'got 0 minutes for beginning of week');
+        equal(daysArray[1].getMinutes(), 59, 'got 59 minutes for end of week');
+
+        equal(daysArray[0].getHours(), 0, 'got 0 hour for beginning of week');
+        equal(daysArray[1].getHours(), 23, 'got 23 hours for end of week');
+            
       });
   })();
 
@@ -364,8 +382,8 @@
                 "hour": "1",
                 "minutes": "0",
                 "week": [
-                    monday,
-                    sunday
+                    new Date(2014, 10, 10, 0, 0, 0),
+                    new Date(2014, 10, 16, 23, 59, 59)
                 ]
             } , "gets the right selection");
 
