@@ -83,7 +83,7 @@ Events | Data | Description
 ------ | ---- | -----------
 onConfirm.weekSchedulerWidget | none | user clicked confirm
 onCancel.weekSchedulerWidget | none | user clicked cancel
-onWeekChanged.weekSchedulerWidget | none | user changed week from the dropdown
+onWeekSelected.weekSchedulerWidget | none | user changed week from the dropdown
 
 
 #### Methods
