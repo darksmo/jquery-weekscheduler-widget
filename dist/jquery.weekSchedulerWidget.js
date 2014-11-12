@@ -1,4 +1,4 @@
-/*! Week Scheduler Widget - v0.0.2 - 2014-11-12
+/*! Week Scheduler Widget - v0.0.3 - 2014-11-12
 * http://darksmo.github.io/jquery-weekscheduler-widget/
 * Copyright (c) 2014; Licensed MIT */
 (function($) {
@@ -8,7 +8,8 @@
 
     var eventsThrown = {
         EVT_CONFIRM_CLICKED: 'onConfirm.' + __name__,
-        EVT_CANCEL_CLICKED: 'onCancel.' + __name__
+        EVT_CANCEL_CLICKED: 'onCancel.' + __name__,
+        EVT_WEEK_CHANGED: 'onWeekSelected.' + __name__
     };
 
     var methods = {
@@ -174,13 +175,16 @@
                     if (daysToSelect[k]) {
                         if (willDayBeChecked[k]) {
                             $element.prop('checked', true);
+                            $element.prop('indeterminate', false);
                         }
                         else {
                             $element.prop('indeterminate', true);
+                            $element.prop('checked', false);
                         }
                     }
                     else {
                         $element.prop('checked', false);
+                        $element.prop('indeterminate', false);
                     }
                 }
             }
@@ -521,6 +525,10 @@
         '_bindEvents': function () {
             var $this = this;
 
+            $this.find(".weekSchedulerWidgetWeeksSelect").bind('change', function () {
+                $this.trigger($.Event(eventsThrown.EVT_WEEK_CHANGED));
+            });
+
             $this.bind('click', function (e) {
 
                 if (typeof e.target !== 'undefined') {
@@ -675,6 +683,16 @@
             // move backwards/forwards until it's the first day of the week
             var firstDayOfWeek = moveUntilDayOfWeek(dayDateWithoutTime, -1, settings.firstDayOfWeek);
             var lastDayOfWeek = moveUntilDayOfWeek(dayDateWithoutTime, +1, settings.lastDayOfWeek);
+
+            // reset hours, minutes, and seconds as needed
+            firstDayOfWeek.setHours(0);
+            firstDayOfWeek.setMinutes(0);
+            firstDayOfWeek.setSeconds(0);
+
+            lastDayOfWeek.setHours(23);
+            lastDayOfWeek.setMinutes(59);
+            lastDayOfWeek.setSeconds(59);
+
 
             return [firstDayOfWeek, lastDayOfWeek];
         },
@@ -831,6 +849,7 @@
             var $this = this;
 
             $this.unbind('click');
+            $this.find(".weekSchedulerWidgetWeeksSelect").unbind('change');
             $this.html('');
             __dayMapping = [];
 
@@ -913,12 +932,11 @@
                     methods.hide.call($this, triggerEvents);
                 }
 
-                methods._bindEvents.call($this);
-
                 // save instance specific data...
                 var html = methods._getWidgetHtml.call($this);
                 $this.append(html);
 
+                methods._bindEvents.call($this);
             });
         }
     };
