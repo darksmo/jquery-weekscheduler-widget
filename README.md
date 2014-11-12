@@ -75,6 +75,17 @@ The `localization` option default is too long to fit in the table. But it looks 
         ]
     },
 
+#### Events thrown
+
+You can listen on the following events via something like `$("#widget").on("onConfirm.weekSchedulerWidget", function () { ... });`
+
+Events | Data | Description
+------ | ---- | -----------
+onConfirm.weekSchedulerWidget | none | user clicked confirm
+onCancel.weekSchedulerWidget | none | user clicked cancel
+onWeekChanged.weekSchedulerWidget | none | user changed week from the dropdown
+
+
 #### Methods
 
 Method | Argument | Description
