@@ -177,13 +177,16 @@
                     if (daysToSelect[k]) {
                         if (willDayBeChecked[k]) {
                             $element.prop('checked', true);
+                            $element.prop('indeterminate', false);
                         }
                         else {
                             $element.prop('indeterminate', true);
+                            $element.prop('checked', false);
                         }
                     }
                     else {
                         $element.prop('checked', false);
+                        $element.prop('indeterminate', false);
                     }
                 }
             }
