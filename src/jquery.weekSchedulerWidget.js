@@ -11,7 +11,8 @@
 
     var eventsThrown = {
         EVT_CONFIRM_CLICKED: 'onConfirm.' + __name__,
-        EVT_CANCEL_CLICKED: 'onCancel.' + __name__
+        EVT_CANCEL_CLICKED: 'onCancel.' + __name__,
+        EVT_WEEK_CHANGED: 'onWeekSelected.' + __name__
     };
 
     var methods = {
@@ -527,6 +528,10 @@
         '_bindEvents': function () {
             var $this = this;
 
+            $this.find(".weekSchedulerWidgetWeeksSelect").bind('change', function (e) {
+                $this.trigger($.Event(eventsThrown.EVT_WEEK_CHANGED));
+            });
+
             $this.bind('click', function (e) {
 
                 if (typeof e.target !== 'undefined') {
@@ -837,6 +842,7 @@
             var $this = this;
 
             $this.unbind('click');
+            $this.find(".weekSchedulerWidgetWeeksSelect").unbind('change');
             $this.html('');
             __dayMapping = [];
 
