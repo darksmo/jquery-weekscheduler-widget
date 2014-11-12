@@ -35,7 +35,7 @@
             // 
             // Check that the minute is a valid minute
             //
-            if (minutesNumeric.index(minute) === -1) {
+            if (minutesNumeric.toArray().indexOf(minute) === -1) {
                 $.error('the minute ' + minute + ' is not valid and should be one of ' + minutesNumeric.toArray().join(","));
             }
 
@@ -95,7 +95,54 @@
         'setDays' : function (daysArray) {
             var $this = this;
 
-            var daysToCheck = {
+            var daysWithState = [];
+            var i;
+            for (i=0; i<daysArray.length; i++) {
+                daysWithState.push({
+                    day: daysArray[i],
+                    state: 'checked'
+                });
+            }
+
+            methods.setDaysWithState.call($this, daysWithState);
+
+            return $this;
+        },
+        /**
+         * Selects the specified dates of the week and unticks the other days
+         * of the week. Each element in the array of state/days is an object
+         * like:
+         * {
+         *   state: "indeterminate", # or "checked"
+         *   day: 3
+         * }
+         *
+         * Duplicates are ignored, and if a day is appearing twice, the one
+         * with the "checked" state will be preferred over the one with
+         * "indeterminate" state. Throws an error if the state is not a valid
+         * value.
+         * 
+         * @name setDaysWithState
+         * @function
+         * @access public
+         * @param {array} dayStates - the days to be set and corresponding states
+         * @returns {jQueryObject} ${this} - for chainability
+         *
+         */
+        'setDaysWithState' : function (dayStateArray) {
+            var $this = this;
+
+            var willDayBeChecked = {
+                0: false,
+                1: false,
+                2: false,
+                3: false,
+                4: false,
+                5: false,
+                6: false
+            };
+
+            var daysToSelect = {
                 0: false,
                 1: false,
                 2: false,
@@ -106,20 +153,37 @@
             };
 
 
-            var i, day;
-            for (i=0; i<daysArray.length; i++) {
-                day = daysArray[i];
-                daysToCheck[day] = true;
+            var i, day, state, dayState;
+            for (i=0; i<dayStateArray.length; i++) {
+                dayState = dayStateArray[i];
+                day = dayState.day;
+                state = dayState.state;
+                if (state !== "indeterminate" && state !== "checked") {
+                    $.error('"' + state + '" is an invalid state. Use "checked" or "indeterminate" instead.');
+                }
+
+                daysToSelect[day] = true;
+                if (!willDayBeChecked[day] && state === 'checked') {
+                    willDayBeChecked[day] = true;
+                }
+
             }
 
             var k;
-            for (k in daysToCheck) {
-                if (daysToCheck.hasOwnProperty(k)) {
-                    if (daysToCheck[k]) {
-                        $this.find('input[value=' + k + ']').prop('checked', 'checked');
+            for (k in daysToSelect) {
+                if (daysToSelect.hasOwnProperty(k)) {
+                    var $element = $this.find('input[value=' + k + ']');
+
+                    if (daysToSelect[k]) {
+                        if (willDayBeChecked[k]) {
+                            $element.prop('checked', true);
+                        }
+                        else {
+                            $element.prop('indeterminate', true);
+                        }
                     }
                     else {
-                        $this.find('input[value=' + k + ']').prop('checked', '');
+                        $element.prop('checked', false);
                     }
                 }
             }
@@ -128,8 +192,29 @@
         },
         /**
          * Selects various controls in the UI according to the given selection.
+         * For the days object in the selection accepts an array of { day:
+         * Date object, state: "indeterminate" or "checked" }.
          *
-         * @name _setSelection
+         * @name setSelectionWithState
+         * @function
+         * @access private
+         * @param {object} selection - the desired selection
+         * @returns {jQueryObject} $(this) - for chainability
+         **/
+        'setSelectionWithState': function (selection) {
+            var $this = this;
+
+            methods.setWeek.call($this, selection.week[0]);
+            methods.setDaysWithState.call($this, selection.days);
+            methods.setHour.call($this, selection.hour);
+            methods.setMinutes.call($this, selection.minutes);
+            
+            return $this;
+        },
+        /**
+         * Selects various controls in the UI according to the given selection.
+         *
+         * @name setSelection
          * @function
          * @access private
          * @param {object} selection - the desired selection
@@ -137,11 +222,21 @@
          **/
         'setSelection': function (selection) {
             var $this = this;
+            
 
-            methods.setWeek.call($this, selection.week[0]);
-            methods.setDays.call($this, selection.days);
-            methods.setHour.call($this, selection.hour);
-            methods.setMinutes.call($this, selection.minutes);
+            var days = selection.days;
+            var daysWithState = [];
+            var i;
+            for (i=0; i<days.length; i++) {
+                daysWithState.push({
+                    day: days[i],
+                    state: 'checked'
+                });
+            }
+
+            selection.days = daysWithState;
+
+            methods.setSelectionWithState.call($this, selection);
             
             return $this;
         },
@@ -151,16 +246,22 @@
          * @name getSelection
          * @function
          * @access public 
-         * @returns {object} selection - the selection of the user, like { week: [Date, Date], days: [0, 3, 6], hour: 21, minutes: 59 }
+         * @returns {object} selection - the selection of the user, like { week: [Date, Date], days: [{ day: 0, state: "checked"}, { day: 3, state: "indeterminate" }], hour: 21, minutes: 59 }
          **/
         'getSelection': function () {
             var $this = this;
             //
-            // Find out what was selected in the form
+            // Find out what was selected in the form, and the state
             //
             var selectedDays = [];
-            $('input[name=days]:checked').each(function() {
-                selectedDays.push(parseInt($(this).val(), 10));
+            $('input[name=days]').each(function() {
+                var $that = $(this);
+                if ($that.prop('checked') === true || $that.prop('indeterminate') === true) {
+                    selectedDays.push({
+                        day: parseInt($that.val(), 10),
+                        state: $that.prop('checked') ? "checked" : "indeterminate"
+                    });
+                }
             });
 
             return {
@@ -171,13 +272,13 @@
             };
         },
         /**
-         * Returns an array of Dates, given the selection object from
+         * Returns an array of Dates and States, given the selection object from
          * _getSelectedDates.
          *
          * @name _getSelectedDates
          * @function
          * @access private
-         * @returns {array} selection - an array of dates representing the selection of the user
+         * @returns {array} selection - an array of dates, and corresponding states
          **/
         '_getSelectedDates' : function (selection) {
             var selectedDates = [];
@@ -185,10 +286,12 @@
             // create a date object for each selected day
             var i, 
                 len = selection.days.length,
+                selectedDayState,
                 selectedDayNum;
 
             for (i=0; i<len; i++) {
-                selectedDayNum = selection.days[i];
+                selectedDayNum = selection.days[i].day;
+                selectedDayState = selection.days[i].state;
 
                 // start from a day representing the beginning of the week
                 var dayDate = new Date(selection.week[0]);
@@ -202,7 +305,10 @@
                 // set the minute
                 dayDate.setMinutes(selection.minutes);
 
-                selectedDates.push(dayDate);
+                selectedDates.push({
+                    date: dayDate,
+                    state: selectedDayState
+                });
             }
 
             return selectedDates;
@@ -238,6 +344,30 @@
         'setDates' : function (datesArray) {
             var $this = this;
 
+            var datesWithState = [];
+            var i;
+            for (i=0; i<datesArray.length; i++) {
+                datesWithState.push({
+                    date: datesArray[i],
+                    state: 'checked'
+                });
+            }
+
+            $this.call('setDatesWithState', datesWithState);
+        },
+        /**
+         * Same as setDates, but the array passed in input also contains the
+         * state of the checkbox.
+         *
+         * @name setDatesWithState
+         * @function
+         * @access public 
+         * @param {array} datesStateArray - the array of Date objects and their state (i.e., { date: new Date(), state: "indeterminate" } }. The state can be "checked" or "indeterminate".
+         * @returns {jqueryObject} $(this) - for chainability
+         **/
+        'setDatesWithState' : function (datesStateArray) {
+            var $this = this;
+
             //
             // We need to make sure we are all good to set the selected dates...
             //
@@ -245,22 +375,22 @@
 
             var h, m, w;
 
-            var date, lastDate, i;
+            var dateState, date, state, lastDate, i;
 
             // given that we are there, also exctract the various day numbers
-            var days = {};
-            var uniqueDays = [];
+            var daysAndState = [];
 
-            for (i=0; date = datesArray[i++];) {
+            for (i=0; dateState = datesStateArray[i++];) {
+                date = dateState.date;
+                state = dateState.state;
                 h = date.getHours();
                 m = date.getMinutes();
                 w = methods._getWeekOfDay.call($this, date);
 
-                var d = date.getDay();
-                if (!days.hasOwnProperty(d)) {
-                    days[d] = 1;
-                    uniqueDays.push(d);
-                }
+                daysAndState.push({
+                    day: date.getDay(),
+                    state: state
+                });
 
                 if (typeof week === 'undefined') {
                     week = w;
@@ -285,9 +415,9 @@
             }
 
             // now h m w contain valid stuff, and we can set.
-            methods.setSelection.call($this, {
+            methods.setSelectionWithState.call($this, {
                 week: [lastDate, lastDate],
-                days: uniqueDays,
+                days: daysAndState,
                 hour: h,
                 minutes: m
             });

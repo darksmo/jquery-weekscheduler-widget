@@ -1,4 +1,4 @@
-/*! Week Scheduler Widget - v0.0.1 - 2014-11-05
+/*! Week Scheduler Widget - v0.0.1 - 2014-11-10
 * http://darksmo.github.io/jquery-weekscheduler-widget/
 * Copyright (c) 2014; Licensed MIT */
 (function($) {

@@ -81,10 +81,12 @@ Method | Argument | Description
 ------ | -------- | -----------
 show | None | show the widget
 hide | None | hide the widget
-getSelectedDates | None | get the current selection of the user represented as an array of Date objects
+SeelgetSelectedDates | None | get the current selection of the user represented as an array of Date objects
 getSelection | None | get the current selection of the user in the form of an object
-setDates | Array[Date] | select the current selection via an array of Dates
+setDates | Array[Date] | set the current selection via an array of Dates
+setDatesWithState | Array[Date] | set the current selection via an array of `{ date: Date object, state: "indeterminate" or "checked" }`
 setDays | Array[number] | select the currently selected days (takes an array of days to select like [3, 5, 6] where 0=sunday and 6=saturday)
+setDaysWithState | Array[object] | same as setDays, but an array of `{ day: number, state: "indeterminate" /* or "checked" */ }` is passed
 setHour | number | select the given hour
 setMinutes | number | select the given minutes
 setWeek | Date | select the week in which the given Date object falls
