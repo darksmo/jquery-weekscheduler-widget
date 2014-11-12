@@ -1,2 +1,4 @@
+v0.0.2 Wed Nov 12 13:26:13 CET 2014
+    * add support for indeterminate state (NOTE: not backward compatible with v0.0.1)
 v0.0.1  Thu Jul 31 07:35:24 CEST 2014
     * first release
