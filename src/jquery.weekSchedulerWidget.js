@@ -17,6 +17,51 @@
 
     var methods = {
         /**
+         * Allows the user to select just one day instead of multiple days.
+         * Option boxes will be used instead of checkboxes (i.e, the current
+         * markup is actually changed).
+         *
+         * Before calling this method, you must make sure that exactly one
+         * checkbox is selected.
+         *
+         * An error is thrown if multiple options or no options are selected.
+         * @name setSingleDaySelect
+         * @function
+         * @access public
+         * @param {boolean} isSingleDaySelect - whether to use options insead of checkboxes
+         * @returns {jQueryObject} $this - for chainability
+         */
+        'setSingleDaySelect': function (isSingleDaySelect) {
+            var $this = this,
+                settings = $this.data('settings');
+            //
+            // First we make sure that only one option is selected and we throw
+            // error in case is not.
+            //
+            var currentSelection = methods.getSelection.call($this);
+            var currentSelectionDays = currentSelection.days;
+            if (currentSelectionDays.length > 1) {
+                $.throw('One or zero days must be selected when setSingleDaySelect is called. Found ' + currentSelectionDays.length + ' days selected instead.');
+            }
+
+            // Save the settings
+            settings.singleDaySelect = isSingleDaySelect;
+            $this.data('settings', settings);
+
+            //
+            // Now re-render the html with the option buttons instead of the
+            // checkboxes.
+            // 
+            methods._refreshHtml.call($this);
+
+            // 
+            // Now select the days according to the current selection
+            //
+            methods.setDaysWithState.call($this, currentSelectionDays);
+
+            return $this;
+        },
+        /**
          * Selects the specified minutes. Throws an error if the minute doesn't
          * respect the user selected precision.
          *
@@ -51,8 +96,7 @@
          * @name setHour
          * @function
          * @access public 
-         * @param {number} hour - the hour
-         * @returns {jQueryObject} $(this) - for chainability
+         * @param {number} hour - the hour * @returns {jQueryObject} $(this) - for chainability
          **/
         'setHour' : function (hour) {
             var $this = this;
@@ -83,8 +127,9 @@
             return $this;
         },
         /**
-         * Ticks the specified dates of the week and unticks the other days
-         * of the week.
+         * Ticks or selects the specified dates of the week and unticks the
+         * other days of the week. An exception is thrown if you try to set
+         * multiple days on a singleDaySelect widget.
          *
          * @name setDays
          * @function
@@ -94,7 +139,12 @@
          *
          */
         'setDays' : function (daysArray) {
-            var $this = this;
+            var $this = this
+                settings = $this.data('settings');
+
+            if (settings.singleDaySelect === true && daysArray.length > 1) {
+                $.error("Only one day can be selected if the singleDaySelect option is set to true");
+            }
 
             var daysWithState = [];
             var i;
@@ -357,7 +407,7 @@
                 });
             }
 
-            $this.call('setDatesWithState', datesWithState);
+            methods.setDatesWithState.call($this, datesWithState);
         },
         /**
          * Same as setDates, but the array passed in input also contains the
@@ -640,12 +690,14 @@
             var $this = this,
                 settings = $this.data('settings');
 
+            var inputType = settings.singleDaySelect ? 'radio' : 'checkbox';
+
             var checkboxes = [];
             var i, day;
             for (i = 0; day = settings.localization.dayNames[i]; i++) {
                 checkboxes.push([
                 '<div class="weekSchedulerWidgetDay">',
-                '<input id="weekSchedulerWidgetDay' + settings.localization.dayNames[i] + '" type="checkbox" name="days" value="', __dayMapping[i], '" />',
+                '<input id="weekSchedulerWidgetDay' + settings.localization.dayNames[i] + '" type="' + inputType + '" name="days" value="', __dayMapping[i], '" />',
                 '<label for="weekSchedulerWidgetDay' + day + '" class="weekSchedulerWidgetDayName">', day, '</label>',
                 '</div>'
                 ].join(''));
@@ -841,6 +893,22 @@
             return true;
         },
         /**
+         * Updates the markup of the widget based on the settings
+         *
+         * @name _refreshHtml
+         * @function
+         * @access private
+         * @returns {jQueryObject} $(this) - for chainability
+         **/
+        '_refreshHtml' : function () {
+            var $this = this;
+            var html = methods._getWidgetHtml.call($this);
+
+            $this.html(html);
+
+            return $this;
+        },
+        /**
          * Destroys the week scheduler widget.
          *
          * @name destroy 
@@ -891,6 +959,11 @@
                         'November', 'December'
                     ]
                 },
+                /*
+                 * Whether to allow only one day to be selected instead of
+                 * multiple days.
+                 */
+                singleDaySelect: false,
                 /* 
                  * The granularity of the minutes picker (i.e., schedule at the
                  * 15th minute of the hour) 
@@ -936,8 +1009,7 @@
                 }
 
                 // save instance specific data...
-                var html = methods._getWidgetHtml.call($this);
-                $this.append(html);
+                methods._refreshHtml.call($this);
 
                 methods._bindEvents.call($this);
             });
