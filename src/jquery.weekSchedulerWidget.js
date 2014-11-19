@@ -40,7 +40,7 @@
             //
             var currentSelection = methods.getSelection.call($this);
             var currentSelectionDays = currentSelection.days;
-            if (currentSelectionDays.length > 1) {
+            if (currentSelectionDays.length > 1 && isSingleDaySelect) {
                 $.error('One or zero days must be selected when setSingleDaySelect is called. Found ' + currentSelectionDays.length + ' days selected instead.');
             }
 

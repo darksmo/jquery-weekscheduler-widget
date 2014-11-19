@@ -224,6 +224,17 @@
         
        });
 
+      test('error is not thrown if more than one days are selected in the widget before singleDaySelect is called with a false value', function () {
+        // initialize the widget
+        $("#widget").weekSchedulerWidget({
+            singleDaySelect: false
+        })
+        .weekSchedulerWidget('setDays', [1,2,5]);
+
+        ok($("#widget").weekSchedulerWidget('setSingleDaySelect', false), "no error thrown");
+
+       });
+
       test('returns radio buttons when the singleDaySelect is set to true', function () {
         // initialize the widget
         $("#widget").weekSchedulerWidget({
