@@ -139,7 +139,7 @@
          *
          */
         'setDays' : function (daysArray) {
-            var $this = this
+            var $this = this,
                 settings = $this.data('settings');
 
             if (settings.singleDaySelect === true && daysArray.length > 1) {

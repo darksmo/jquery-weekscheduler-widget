@@ -198,7 +198,7 @@
         }, "Exception was thrown");
       });
 
-  });
+  })();
 
   (function () {
       var testMethod = 'setSingleDaySelect';
