@@ -153,6 +153,109 @@
 
 
   (function () {
+      var testMethod = '_getDaysMarkup';
+
+      module(testMethod, {
+        setup: addMarkupToFixture('widget')
+      });
+
+
+      test('returns radio buttons when the corresponding option is specified', function () {
+        // initialize the widget
+        $("#widget").weekSchedulerWidget({
+            singleDaySelect: true
+        });
+
+        // check
+        equal($("#widget input[type=radio]").length, 7, "found seven radio options");
+      });
+
+      test('returns checkboxes when the corresponding option is specified', function () {
+        // initialize the widget
+        $("#widget").weekSchedulerWidget({
+            singleDaySelect: false
+        });
+
+        // check
+        equal($("#widget input[type=checkbox]").length, 7, "found seven checkbox options");
+      });
+  })();
+
+  (function () {
+      var testMethod = 'setDays';
+
+      module(testMethod, {
+        setup: addMarkupToFixture('widget')
+      });
+
+      test('throws exception if we try to set multiple days on a singleDaySelect widget', function () {
+        $("#widget").weekSchedulerWidget({
+            singleDaySelect : true
+        });
+
+        throws(function () {
+            $("#widget").weekSchedulerWidget('setDays', [2,3,4]);
+        }, "Exception was thrown");
+      });
+
+  });
+
+  (function () {
+      var testMethod = 'setSingleDaySelect';
+
+      module(testMethod, {
+        setup: addMarkupToFixture('widget')
+      });
+
+      test('error is thrown if more than one days are selected in the widget before singleDaySelect is called', function () {
+        // initialize the widget
+        $("#widget").weekSchedulerWidget({
+            singleDaySelect: false
+        })
+        .weekSchedulerWidget('setDays', [1,2,5]);
+
+        throws(function () {
+            $("#widget").weekSchedulerWidget('setSingleDaySelect', true);
+        }, 'error is thrown because more than two days are selected');
+
+        // all is fine if we set the number of days to nothing
+        $("#widget").weekSchedulerWidget('setDays', []);
+        ok($("#widget").weekSchedulerWidget('setSingleDaySelect', true), "all is fine if we set the number of days to nothing");
+        
+       });
+
+      test('returns radio buttons when the singleDaySelect is set to true', function () {
+        // initialize the widget
+        $("#widget").weekSchedulerWidget({
+            singleDaySelect: false
+        });
+
+        // check
+        equal($("#widget input[type=radio]").length, 0, "found no radios");
+        equal($("#widget input[type=checkbox]").length, 7, "found checkboxes");
+
+        // call the method
+        $("#widget").weekSchedulerWidget('setSingleDaySelect', true);
+
+        // all should be reversed
+        equal($("#widget input[type=radio]").length, 7, "found radios");
+        equal($("#widget input[type=checkbox]").length, 0, "found no checkboxes");
+
+        // call the method
+        $("#widget").weekSchedulerWidget('setSingleDaySelect', false);
+
+        // check
+        equal($("#widget input[type=radio]").length, 0, "found no radios");
+        equal($("#widget input[type=checkbox]").length, 7, "found checkboxes");
+
+      });
+
+  })();
+
+
+
+
+  (function () {
       var testMethod = '_getWeekOfDay';
 
       module(testMethod, {

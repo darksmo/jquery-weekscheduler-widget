@@ -41,6 +41,7 @@ Option | Type | Default | Description
 ------ | ---- | ------- | -----------
 localization | object | see below | localization of the widget, including months and day names
 minutesPrecision | number | 15 | the granularity of the minutes picker, the default is indicating to schedule at the 15th minute of the hour
+singleDaySelect | boolean | false | whether to allow only one day (rather than multiple days) to be selected
 startDate | Date | `new Date()` | the day of the week we want to start from in the week picker
 endDate | Date | a date object ending one month later than startDate | the day of the week we want to end to in the week picker
 firstDayOfWeek | number | 1 | what day is the first day of the week for you; `0 = sunday 6 = saturday`
@@ -92,7 +93,8 @@ Method | Argument | Description
 ------ | -------- | -----------
 show | None | show the widget
 hide | None | hide the widget
-SeelgetSelectedDates | None | get the current selection of the user represented as an array of Date objects
+setSingleDaySelect | boolean | change the aspect of the widget allowing selection of single and multiple items
+getSelectedDates | None | get the current selection of the user represented as an array of Date objects
 getSelection | None | get the current selection of the user in the form of an object
 setDates | Array[Date] | set the current selection via an array of Dates
 setDatesWithState | Array[Date] | set the current selection via an array of `{ date: Date object, state: "indeterminate" or "checked" }`
