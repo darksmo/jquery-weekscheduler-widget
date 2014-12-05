@@ -95,8 +95,7 @@ pre {
 
 .partial-body {
     width: 70%;
-    position: absolute;
-    right: 0;
+    float: right;
     padding-right: 1em;
 }
 
@@ -106,5 +105,9 @@ ul {
 
 .tab {
     border: 1px solid red;
+    padding: 1em;
+}
+
+#disqus_thread {
     padding: 1em;
 }
