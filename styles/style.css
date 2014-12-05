@@ -15,7 +15,7 @@ body {
 
 #widget {
     clear: both;
-    border-left: 1px solid red;
+    border-left: 1px solid #d82a2a;
     width: 50%;
 }
 
@@ -52,12 +52,13 @@ h2, #calendar-image {
 }
 
 #redBand {
-    background: red;
+    background: #d82a2a;
     height: 3em;
     width: 100%;
     position: absolute;
     top: 1.5em;
     left: 0;
+    z-index: -1;
 }
 
 pre {
@@ -81,7 +82,7 @@ pre {
         margin-bottom: 1em;
         margin-right: 1em;
         
-        background: red;
+        background: #d82a2a;
         color: white;
         text-decoration: none;
         padding: 1em;
@@ -104,7 +105,7 @@ ul {
 }
 
 .tab {
-    border: 1px solid red;
+    border: 1px solid #d82a2a;
     padding: 1em;
 }
 
